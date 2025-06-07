@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+#Rota para passar o diretório raiz como a página home, que utiliza o template.blade!
+Route::get('/', [AppController::class, 'home']);
+
