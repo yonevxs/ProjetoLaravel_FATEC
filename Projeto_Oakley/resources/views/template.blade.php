@@ -5,24 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('titulo')</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    <header>
-        <div>
-            <h1>Oakley</h1>
+    <header class="shadow-lg bg-black text-white px-4 py-2 flex flex-col md:flex-row justify-between items-center relative z-10">
+        <div class="flex justify-between items-center w-full md:w-auto">
+            <img class="w-24" src="{{ asset('imgs/logo_oakley.png') }}" alt="Logo Oakley">
         </div>
 
-        <div class = "pagesections">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="">Sobre</a></li>
-                <li><a href="">Produtos</a></li>
-                <li><a href="">Contato</a></li>
-                <li><a href="">Entrar</a></li>
+        <div class="flex flex-col md:flex-row md:items-center w-full md:w-auto mt-4 md:mt-0">
+            <ul class="flex flex-col md:flex-row md:space-x-6 space-y-2 md:space-y-0 text-center md:text-left w-full md:w-auto">
+                <li><a href="/" class="hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium">Home</a></li>
+                <li><a href="" class="hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium">Sobre</a></li>
+                <li><a href="" class="hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium">Produtos</a></li>
+                <li><a href="" class="hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium">Contato</a></li>
             </ul>
+            <div class="login_button md:ml-6 mt-4 md:mt-0 w-full md:w-auto"> 
+                <a href="" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded block w-full md:w-auto transition duration-300 ease-in-out">Entrar</a>
+            </div>
         </div>
     </header>
-    <main>
+    <main class="color_body">
         @yield('conteudo')
     </main>
 </body>
