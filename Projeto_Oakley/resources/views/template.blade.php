@@ -9,8 +9,8 @@
 </head>
 <body>
     <header class="shadow-lg bg-black text-white px-4 py-2 flex flex-col md:flex-row justify-between items-center relative z-10">
-        <div class="flex justify-between items-center w-full md:w-auto">
-            <img class="w-24" src="{{ asset('imgs/logo_oakley.png') }}" alt="Logo Oakley">
+        <div class="flex justify-between items-center w-full md:w-auto ">
+            <img class="w-24 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105" src="{{ asset('imgs/logo_oakley.png') }}" alt="Logo Oakley">
         </div>
 
         <div class="flex flex-col md:flex-row md:items-center w-full md:w-auto mt-4 md:mt-0">
