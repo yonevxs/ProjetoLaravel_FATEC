@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('titulo')</title>
+    <link rel="icon" href="{{ asset('imgs/logo_oakley.png')}}" type="image/png">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -16,7 +17,7 @@
         <div class="flex flex-col md:flex-row md:items-center w-full md:w-auto mt-4 md:mt-0">
             <ul class="flex flex-col md:flex-row md:space-x-6 space-y-2 md:space-y-0 text-center md:text-left w-full md:w-auto">
                 <li><a href="/" class="hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium">Home</a></li>
-                <li><a href="" class="hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium">Sobre</a></li>
+                <li><a href="sobre" class="hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium">Sobre</a></li>
                 <li><a href="" class="hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium">Produtos</a></li>
                 <li><a href="" class="hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium">Contato</a></li>
             </ul>
