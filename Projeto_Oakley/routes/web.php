@@ -8,3 +8,6 @@ Route::get('/', [AppController::class, 'home']);
 
 Route::get('/sobre', [AppController::class, 'sobre']);
 
+Route::get('/contato', [AppController::class, 'contato']);
+
+Route::get('/addproduto', [AppController::class, 'addproduto']);

@@ -51,5 +51,11 @@ class AppController extends Controller
             ];
         return view('sobre', ['dev_cards' => $dev_cards]);
     }
+    public function contato(){
+        return view('contato');
+    }
+    public function addproduto(){
+        return view('addproduto');
+    }
 }
 
