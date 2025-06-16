@@ -29,5 +29,16 @@
     <main class="color_body">
         @yield('conteudo')
     </main>
+    <footer >
+        <div class="bg-gray-900 w-full md:w-auto text-white">
+            <p class="font-[Schibsted_Grotesk] text-[12px] p-5 font-medium text-center leading-relaxed ml-5">
+                Lucas Henrique Neves Sousa & Gustavo Lemos de Oliveira
+            </p>
+            
+            <p class="font-[Schibsted_Grotesk] text-[12px] p-2 leading-relaxed ml-5 mt-[-15px] text-center">
+                FATECPG - 2025
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
