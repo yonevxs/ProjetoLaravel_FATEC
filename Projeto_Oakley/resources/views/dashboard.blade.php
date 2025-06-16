@@ -40,7 +40,7 @@
             </div>
         </a>
 
-        <a href="/produtos" class="block">
+        <a href="listaprodutos" class="block">
             <div class="bg-white py-6 px-6 rounded-2xl shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 transition duration-200 ease-in-out flex flex-col items-center text-center">
                 <i class="fas fa-boxes text-orange-600 text-5xl mb-4"></i>
                 <h3 class="text-xl font-bold text-gray-800 mb-2">Lista de Produtos</h3>
@@ -48,7 +48,7 @@
             </div>
         </a>
 
-        <a href="/contato" class="block"> {{-- Ajuste o href se sua rota para a lista de contatos for diferente --}}
+        <a href="listacontatos" class="block">
             <div class="bg-white py-6 px-6 rounded-2xl shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 transition duration-200 ease-in-out flex flex-col items-center text-center">
                 <i class="fas fa-address-book text-red-600 text-5xl mb-4"></i>
                 <h3 class="text-xl font-bold text-gray-800 mb-2">Lista de Contatos</h3>

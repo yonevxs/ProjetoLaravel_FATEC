@@ -8,20 +8,21 @@
         <div class="container mx-auto px-4">
             <h3 class="font-[Schibsted_Grotesk] text-gray-800 text-3xl font-bold tracking-wide uppercase text-center mb-15 mt-[-20px]">Fale Conosco</h3>
 
-            <form class="max-w-sm mx-auto mt-[-50px]" action="">
+            <form class="max-w-sm mx-auto mt-[-50px]" action="/salvarcontato" method="POST">
+                @csrf
                 <div class="mb-5">
                     <label class="block text-sm font-medium text-gray-900 dark:text-gray-900 ml-1" for="name">Nome</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white font-bold" placeholder="Seu Nome" type="text" required>
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white font-bold" placeholder="Seu Nome" type="text" id="nome" name="nome" required>
                 </div>
 
                 <div class="mb-5">
                     <label class="block text-sm font-medium text-gray-900 dark:text-gray-900 ml-1" for="email">E-mail</label>
-                    <input  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white font-bold" placeholder="email@email.com" type="email" required>
+                    <input  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white font-bold" placeholder="email@email.com" type="email" id="email" name="email" required>
                 </div>
         
                 <div class="mb-5">
                     <label class="block text-sm font-medium text-gray-900 dark:text-gray-900 ml-1" for="assunto">Assunto</label>
-                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white font-bold" placeholder="Seu Assunto" type="text">
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white font-bold" placeholder="Seu Assunto" type="text" id="assunto" name="assunto">
                 </div>
 
                 <div class="mb-5">

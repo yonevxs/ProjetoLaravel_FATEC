@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Produto;
 use App\Models\Usuario;
+use App\Models\Contato;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
@@ -163,6 +164,55 @@ class AppController extends Controller
         $usuario->update($dados); 
         return redirect('usuarios')->with('success', 'Usuário atualizado com sucesso!');
     }
+    public function listaprodutos() {
+        $todosProdutos = Produto::all();
+        return view('listaprodutos', ['produtos'=> $todosProdutos]);
+    }
+    
 
+    public function listacontatos(){
+        return view('listacontatos');
+    }
+    public function salvarContato(Request $request){
+
+    $request->validate([
+        'nome' => 'required|string|max:255',
+        'email' => 'required|email|max:255', 
+        'assunto' => 'nullable|string|max:255',
+        'mensagem' => 'required|string',
+    ]);
+
+    Contato::create([
+        'nome' => $request->nome,
+        'email' => $request->email, 
+        'assunto' => $request->assunto,
+        'mensagem' => $request->mensagem,
+    ]);
+         return redirect('/contato/confirmacao')->with('success', 'Sua mensagem foi enviada com sucesso!');
+    }
+    public function confirmacaoContato(){
+    return view('confirmacao_contato');
+    }
+    public function listarContatos(){
+        $mensagens = Contato::all();
+        return view('listacontatos', ['mensagens' => $mensagens]);
+    }
+
+    public function excluirContato($id){
+        $contato = Contato::find($id);
+        if ($contato) {
+            $contato->delete();
+            return redirect()->back()->with('success', 'Mensagem excluída com sucesso!');
+        }
+        return redirect()->back()->with('error', 'Mensagem não encontrada.');
+    }
+    public function excluirProduto($id){
+        $produto = Produto::find($id);
+        if($produto){
+            $produto->delete();
+            return redirect()->back()->with('success', 'Produto excluído com sucesso!');
+        }
+        return redirect()->back()->with('error', 'Produto não encontrado.');
+    }
  }
 
