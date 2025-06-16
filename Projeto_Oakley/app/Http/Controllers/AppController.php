@@ -54,8 +54,27 @@ class AppController extends Controller
     public function contato(){
         return view('contato');
     }
-    public function addproduto(){
-        return view('addproduto');
+    public function addproduto(Request $request){
+        $produto = new Produto();
+
+        $produto->nome = $request->nome;
+        $produto->preco = $request->preco;
+        $produto->quantidade = $request->quantidade;
+
+        if($request->hasFile('imagem')){
+            $path = $request->file('imagem')->store('imagens', 'public');
+            $produto->imagem = $path;
+        }
+        $produto->save();
+
+        return redirect('produtos');
+    }
+    public function form_produto(){
+        return view('form_produto');
+    }
+    public function produtos(){
+        $produto = Produto::all();
+        return view('produtos', ['produtos' => $produto]);
     }
 }
 

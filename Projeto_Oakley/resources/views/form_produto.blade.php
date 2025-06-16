@@ -11,7 +11,7 @@
             </h2>
         </div>
         
-        <form class="mt-8 space-y-6" action="" method="POST" enctype="multipart/form-data">
+        <form class="mt-8 space-y-6" action="/addproduto" method="post" enctype="multipart/form-data">
             @csrf
             
             <div>

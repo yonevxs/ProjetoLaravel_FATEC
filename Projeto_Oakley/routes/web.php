@@ -10,4 +10,8 @@ Route::get('/sobre', [AppController::class, 'sobre']);
 
 Route::get('/contato', [AppController::class, 'contato']);
 
-Route::get('/addproduto', [AppController::class, 'addproduto']);
+Route::get('/form_produto', [AppController::class, 'form_produto']);
+
+Route::post('/addproduto', [AppController::class, 'addproduto']);
+
+Route::get('/produtos', [AppController::class, 'produtos']);
