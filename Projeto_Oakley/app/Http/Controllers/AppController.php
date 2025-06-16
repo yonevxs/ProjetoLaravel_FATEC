@@ -76,5 +76,93 @@ class AppController extends Controller
         $produto = Produto::all();
         return view('produtos', ['produtos' => $produto]);
     }
-}
+
+
+    
+    //USUARIO
+    public function cadastro_usuario(){
+        return view('cadastro_usuario');
+    }
+
+    public function usuarios(){
+        $usuarios = Usuario::all();
+        return view ('usuarios',['users'=>$usuarios]);
+    }
+
+    public function addusuario (Request $request){
+        
+        $usuario = new Usuario();
+        $usuario ->nome = $request->unome;
+        $usuario ->email = $request->uemail;
+        $usuario ->senha = Hash::make($request->usenha);
+        $usuario -> save();
+       return redirect('login')->with('success', 'Usuário cadastrado com sucesso!');
+
+    }
+
+    public function form_editarusuario($id){
+        $usuario = Usuario::findOrFail($id);
+        return view ('form_editarusuario',['user' =>$usuario]);
+    }
+
+    public function excluirusuario($id){
+
+        $usuario = Usuario::findOrFail($id);
+        $usuario->delete();
+        return redirect('usuarios');  
+    }
+
+    public function login(){
+    return view('login');
+    }
+    public function logar(Request $request){
+        $usuario = Usuario::where('email', $request->email)->first();
+
+        if (!$usuario || !Hash::check($request->senha, $usuario->senha)) {
+            return redirect('/login')->with('error', 'E-mail ou senha inválidos.');
+        }
+
+        Session::put('usuario_id', $usuario->id);
+        Session::put('usuario_nome', $usuario->nome);
+        
+        return redirect('/dashboard');
+    }
+    public function dashboard() {
+    if (!session()->has('usuario_id')) {
+        return redirect('/login');
+    }
+    return view('dashboard');
+    }
+    public function logout() {
+        Session::flush();
+        return redirect('/');
+    }
+    public function atualizarusuario(Request $request, $id){
+        $usuario = Usuario::findOrFail($id);
+        
+        $rules = [
+            'unome' => 'required|string|max:255',
+            'uemail' => 'required|string|email|max:255|unique:usuarios,email,' . $usuario->id,
+        ];
+
+        if ($request->filled('usenha')) { 
+            $rules['usenha'] = 'string|min:3|confirmed';
+        }
+
+        $request->validate($rules);
+
+        $dados = [
+            'nome' => $request->unome, 
+            'email' => $request->uemail, 
+        ];
+
+        if ($request->filled('usenha')) {
+            $dados['senha'] = Hash::make($request->usenha);
+        }
+
+        $usuario->update($dados); 
+        return redirect('usuarios')->with('success', 'Usuário atualizado com sucesso!');
+    }
+
+ }
 

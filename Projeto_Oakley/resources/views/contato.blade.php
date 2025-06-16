@@ -4,7 +4,7 @@
 
 @section('conteudo')
 <div class="relative w-full h-screen flex">
-    <div class="bg-[rgb(252,248,239)] py-12 rounded-lg shadow-xl mx-auto w-200 mt-16 h-140">
+    <div class="bg-[rgb(252,248,239)] py-12 rounded-lg shadow-xl mx-auto w-200 mt-6 h-140">
         <div class="container mx-auto px-4">
             <h3 class="font-[Schibsted_Grotesk] text-gray-800 text-3xl font-bold tracking-wide uppercase text-center mb-15 mt-[-20px]">Fale Conosco</h3>
 
