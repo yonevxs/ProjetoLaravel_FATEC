@@ -8,6 +8,7 @@ use App\Models\Usuario;
 use App\Models\Contato;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class AppController extends Controller
 {
@@ -91,7 +92,20 @@ class AppController extends Controller
     }
 
     public function addusuario (Request $request){
-        
+        $request->validate([
+                'unome' => 'required|string|max:100',
+                'uemail' => 'required|string|email|max:100|unique:usuarios,email',
+                'usenha' => 'required|string|min:3|confirmed',
+        ],[
+            'unome.required' => 'O campo Nome é obrigatório.',
+            'uemail.required' => 'O campo E-mail é obrigatório.',
+            'uemail.email' => 'Por favor, insira um endereço de e-mail válido.',
+            'uemail.unique' => 'Este e-mail já está cadastrado em nosso sistema.',
+            'usenha.required' => 'O campo Senha é obrigatório.',
+            'usenha.min' => 'A senha deve ter pelo menos :min caracteres.',
+            'usenha.confirmed' => 'A confirmação de senha não corresponde.',
+        ]);
+
         $usuario = new Usuario();
         $usuario ->nome = $request->unome;
         $usuario ->email = $request->uemail;
@@ -213,6 +227,48 @@ class AppController extends Controller
             return redirect()->back()->with('success', 'Produto excluído com sucesso!');
         }
         return redirect()->back()->with('error', 'Produto não encontrado.');
+    }
+    public function form_editarproduto($id){
+        $produto = Produto::findOrFail($id);
+        return view ('form_editarproduto',['prod' => $produto]);
+    }
+    public function atualizarproduto(Request $request, $id){
+        //dd($request->all(), $id);
+        $produto = Produto::findOrFail($id);
+        
+        $rules = [
+            'nome' => 'required|string|max:255',
+            'preco' => 'required|numeric|min:0',
+            'quantidade' => 'required|integer|min:0',
+        ];
+        $request->validate($rules, [
+            'nome.required' => 'O campo Nome do Produto é obrigatório.',
+            'preco.required' => 'O campo Preço é obrigatório.',
+            'preco.numeric' => 'O campo Preço deve ser um número.',
+            'preco.min' => 'O campo Preço não pode ser negativo.',
+            'quantidade.required' => 'O campo Estoque é obrigatório.',
+            'quantidade.integer' => 'O campo Estoque deve ser um número inteiro.',
+            'quantidade.min' => 'O campo Estoque não pode ser negativo.',
+            'foto.image' => 'O arquivo deve ser uma imagem.',
+            'foto.mimes' => 'A imagem deve ser dos tipos: jpeg, png, jpg, gif, svg.',
+            'foto.max' => 'A imagem não pode ter mais de 2MB.',
+        ]);
+        $dadosAtualizacao = [
+            'nome' => $request->nome,
+            'preco' => $request->preco,
+            'quantidade' => $request->quantidade,
+        ];
+
+        if($request->hasFile('foto')){
+            if($produto->foto && Storage::exists('public/' . $produto->foto)){
+                Storage::delete('public/' . $produto->foto);
+            }
+
+            $path = $request->file('foto')->store('uploads/produtos', 'public');
+            $dadosAtualizacao['foto'] = $path;
+        }
+        $produto->update($dadosAtualizacao);
+        return redirect('listaprodutos')->with('success', 'Produto atualizado com sucesso!');
     }
  }
 

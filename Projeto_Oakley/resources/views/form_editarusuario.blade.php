@@ -17,7 +17,6 @@
     <div class="relative z-20 w-full max-w-md mx-auto px-4">
         <div class="bg-white py-8 px-6 rounded-2xl shadow-2xl">
 
-            {{-- Mensagens de Sucesso ou Erro (opcional, mas recomendado) --}}
             @if(session('success'))
                 <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
                     <span class="block sm:inline">{{ session('success') }}</span>
@@ -38,7 +37,7 @@
                 </div>
             @endif
 
-            <form action="/atualizarusuario/{{$user->id}}" method="POST" class="space-y-6" enctype="multipart/form-data"> {{-- ALTERADO AQUI: $usuario->id para $user->id --}}
+            <form action="/atualizarusuario/{{$user->id}}" method="POST" class="space-y-6" enctype="multipart/form-data">
                 @csrf
                 @method('put')
 

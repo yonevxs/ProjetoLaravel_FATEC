@@ -21,6 +21,8 @@ Route::middleware(['auth.custom'])->group(function (){
     Route::post('/addproduto', [AppController::class, 'addproduto']);
     Route::get('/listaprodutos', [AppController::class, 'listaprodutos']);
     Route::delete('/excluirproduto/{id}', [AppController::class, 'excluirProduto']);
+    Route::get('form_editarproduto/{id}', [AppController::class, 'form_editarproduto']);
+    Route::put('/atualizarproduto/{id}', [AppController::class, 'atualizarproduto']);
     
     //CRUD - Contato
     Route::get('/listacontatos', [AppController::class, 'listarContatos']);

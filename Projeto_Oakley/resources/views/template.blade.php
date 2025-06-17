@@ -39,6 +39,7 @@
                 @endif
             </div>
         </div>
+        
     </header>
     <main class="color_body">
         @yield('conteudo')
