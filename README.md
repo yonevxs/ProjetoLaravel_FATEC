@@ -39,7 +39,8 @@ cd ProjetoLaravel_FATEC
 composer install
 npm install
 ```
-2. Configurar o Ambiente
+###2. Configurar o Ambiente:
+   
   1. Crie uma cópia do arquivo de ambiente de exemplo:
      ```Bash
      cp .env.exemplo .env
