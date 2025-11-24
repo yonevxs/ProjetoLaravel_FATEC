@@ -1,4 +1,4 @@
-# 🌊 Projeto Institucional - Desenvolvimento Web 2 (FATEC PG)
+# Projeto Institucional - Desenvolvimento Web 2 (FATEC PG)
 
 ## 📌 Sobre o Projeto
 
@@ -59,18 +59,18 @@ npm install
         DB_PASSWORD=[...SUA_SENHA_DO_BANCO...]
 
   3.1 Executar Migrations e Seeders (Estrutura do Banco)
-  ```Bash
+   ```Bash
     php artisan migrate --seed
-  ```
+   ```
   4. Compilar Assets (Tailwind CSS)
   ```Bash
     npm run dev
     # Durante o desenvolvimento, você pode usar: npm run watch
   ```
   5. Iniciar o Servidor de Desenvolvimento
-     ```Bash
-     php artisan serve
-     ```
+```Bash
+   php artisan serve
+ ```
 ---
      
 ## 🤝 Colaboradores
