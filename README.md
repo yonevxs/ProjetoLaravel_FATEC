@@ -43,11 +43,11 @@ Certifique-se de ter instalado em sua máquina:
    
   1. Crie uma cópia do arquivo de ambiente de exemplo:
      ```Bash
-        cp .env.exemplo .env
+     cp .env.exemplo .env
      ```
    2. Gere a chave da aplicação:
       ```Bash
-         php artisan key:generate
+      php artisan key:generate
       ```
    3.Edite o arquivo .env e configure a conexão com o seu banco de dados:
    
