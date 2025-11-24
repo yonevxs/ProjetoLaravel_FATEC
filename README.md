@@ -34,39 +34,39 @@ Certifique-se de ter instalado em sua máquina:
 ### 1. Clonar o Repositório e Instalar Dependências
 
 ```bash
-git clone [https://github.com/yonevxs/ProjetoLaravel_FATEC.git](https://github.com/yonevxs/ProjetoLaravel_FATEC.git)
-cd ProjetoLaravel_FATEC
-composer install
-npm install
+    git clone [https://github.com/yonevxs/ProjetoLaravel_FATEC.git](https://github.com/yonevxs/ProjetoLaravel_FATEC.git)
+    cd ProjetoLaravel_FATEC
+    composer install
+    npm install
 ```
 ###2. Configurar o Ambiente:
    
   1. Crie uma cópia do arquivo de ambiente de exemplo:
      ```Bash
-     cp .env.exemplo .env
+        cp .env.exemplo .env
      ```
    2. Gere a chave da aplicação:
       ```Bash
-      php artisan key:generate
+         php artisan key:generate
       ```
    3.Edite o arquivo .env e configure a conexão com o seu banco de dados:
    
-        DB_CONNECTION=mysql
-        DB_HOST=127.0.0.1
-        DB_PORT=3306
-        DB_DATABASE=[...SEU_NOME_DO_BANCO...]
-        DB_USERNAME=[...SEU_USUARIO_DO_BANCO...]
-        DB_PASSWORD=[...SUA_SENHA_DO_BANCO...]
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=[...SEU_NOME_DO_BANCO...]
+    DB_USERNAME=[...SEU_USUARIO_DO_BANCO...]
+    DB_PASSWORD=[...SUA_SENHA_DO_BANCO...]
 
   3.1 Executar Migrations e Seeders (Estrutura do Banco)
    ```Bash
     php artisan migrate --seed
    ```
   4. Compilar Assets (Tailwind CSS)
-  ```Bash
+   ```Bash
     npm run dev
     # Durante o desenvolvimento, você pode usar: npm run watch
-  ```
+   ```
   5. Iniciar o Servidor de Desenvolvimento
 ```Bash
    php artisan serve
