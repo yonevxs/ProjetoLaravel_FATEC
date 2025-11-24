@@ -77,6 +77,6 @@ Certifique-se de ter instalado em sua máquina:
 
 O desenvolvimento deste projeto foi realizado pelos seguintes alunos:
 
-* **GustavoInCode24** - [https://github.com/GustavoInCode24](https://github.com/GustavoInCode24)
-* **yonevxs** - [https://github.com/yonevxs](https://github.com/yonevxs)
+* **[GustavoInCode24](https://github.com/GustavoInCode24)**
+* **[yonevxs](https://github.com/yonevxs)**
   
